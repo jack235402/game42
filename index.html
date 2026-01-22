@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My First GTA-Style Game</title>
+</head>
+<body style="background:black;color:white;text-align:center;font-family:Arial;">
+
+  <h1>🚓 My First Roleplay Game</h1>
+  <p id="job">Job: Unemployed</p>
+  <p id="money">Money: $500</p>
+
+  <button onclick="setJob('Police')">Become Police</button>
+  <button onclick="setJob('Criminal')">Become Criminal</button>
+  <br><br>
+  <button onclick="work()">Work</button>
+  <button onclick="crime()">Commit Crime</button>
+
+  <script>
+    let job = "Unemployed";
+    let money = 500;
+
+    function update() {
+      document.getElementById("job").innerText = "Job: " + job;
+      document.getElementById("money").innerText = "Money: $" + money;
+    }
+
+    function setJob(newJob) {
+      job = newJob;
+      update();
+      alert("You are now a " + job);
+    }
+
+    function work() {
+      if (job === "Police") {
+        money += 200;
+        alert("Police shift done!");
+      } else {
+        money += 100;
+        alert("You worked a normal job");
+      }
+      update();
+    }
+
+    function crime() {
+      if (job === "Criminal") {
+        money += 300;
+        alert("Crime successful!");
+      } else {
+        money -= 100;
+        alert("You got fined!");
+      }
+      update();
+    }
+
+    update();
+  </script>
+
+</body>
+</html>
